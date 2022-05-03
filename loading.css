@@ -1,0 +1,58 @@
+
+.Loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .Loading h2 {
+    color: #879aa9;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  
+  .Loading p {
+    color: #879aa9;
+    margin: 0;
+  }
+  
+  .LoadedIstrue{
+    display: none!important;
+  }
+  
+  .LoadingLogoContainer{
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .LoadingElementContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  .Separator{
+    width: 100%;
+    border: 1px solid #d6d8dc;
+  }
+  
+  .LogoElements{
+    max-width: 250px;
+    margin: 20px;
+  }
+  
+  .LogoGenshin{
+    max-width: 300px;
+  }

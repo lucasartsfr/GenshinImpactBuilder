@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "./static/css/main.ebb86568.css",
+    "main.js": "./static/js/main.f6c6671c.js",
+    "static/js/787.28cb0dcd.chunk.js": "./static/js/787.28cb0dcd.chunk.js",
+    "static/media/Light00008.webp": "./static/media/Light00008.96ce521ad377f4b5aa8f.webp",
+    "static/media/Light00007.webp": "./static/media/Light00007.f067d8ed0c70ce1327f8.webp",
+    "static/media/Light00009.webp": "./static/media/Light00009.0733fa26ac981d2f6cb1.webp",
+    "static/media/Light00010.webp": "./static/media/Light00010.62295904748f8f716354.webp",
+    "static/media/Light00012.webp": "./static/media/Light00012.15eab48bf6e66f9da5fc.webp",
+    "static/media/Light00013.webp": "./static/media/Light00013.a76c808d0dbc13230fb1.webp",
+    "static/media/Light00011.webp": "./static/media/Light00011.462760d5becf358f3324.webp",
+    "static/media/Light00005.webp": "./static/media/Light00005.2aba49c2d08bd972dd48.webp",
+    "static/media/Light00014.webp": "./static/media/Light00014.63750ebe5bb97f5223db.webp",
+    "static/media/Light00006.webp": "./static/media/Light00006.7fb94586d8458b5567b2.webp",
+    "static/media/Light00004.webp": "./static/media/Light00004.765ae195a1d775be41d6.webp",
+    "static/media/Light00015.webp": "./static/media/Light00015.df20773acfb232dd0cb3.webp",
+    "static/media/Light00003.webp": "./static/media/Light00003.7847299829c612349082.webp",
+    "static/media/Geo.webp": "./static/media/Geo.3635990029c99ac8030b.webp",
+    "static/media/Anemo.webp": "./static/media/Anemo.5f0e9785372abf45ace4.webp",
+    "static/media/Pyro.webp": "./static/media/Pyro.6b57231376e18b35e5ff.webp",
+    "static/media/Cryo.webp": "./static/media/Cryo.bc71140b5d6b29e5519a.webp",
+    "static/media/Hydro.webp": "./static/media/Hydro.aaec8b10d75a0c4f44df.webp",
+    "static/media/Electro.webp": "./static/media/Electro.26ce3e61cc384617d541.webp",
+    "static/media/Light00016.webp": "./static/media/Light00016.9ec239ed8fe184c52bca.webp",
+    "static/media/Light00002.webp": "./static/media/Light00002.4bdfeba673d3f265166b.webp",
+    "static/media/Light00001.webp": "./static/media/Light00001.67513b11e355cfcf105e.webp",
+    "static/media/Light00017.webp": "./static/media/Light00017.13b1d86f00cc09990f7c.webp",
+    "static/media/star3.webp": "./static/media/star3.42329890a14894f73b89.webp",
+    "static/media/star4.webp": "./static/media/star4.99c0606f26ad3c195ea3.webp",
+    "static/media/star5.webp": "./static/media/star5.b090231fd5d5d407c222.webp",
+    "index.html": "./index.html",
+    "static/media/Light00000.webp": "./static/media/Light00000.c241a4b20cf5e8d9830f.webp",
+    "main.ebb86568.css.map": "./static/css/main.ebb86568.css.map",
+    "main.f6c6671c.js.map": "./static/js/main.f6c6671c.js.map",
+    "787.28cb0dcd.chunk.js.map": "./static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ebb86568.css",
+    "static/js/main.f6c6671c.js"
+  ]
+}
