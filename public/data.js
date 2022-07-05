@@ -136,7 +136,7 @@ const Polearms = {
     Victoire : "Scion de la victoire",
     Stellaire : "Guisarme stellaire",
     Millelithes : "Lance des millelithes",
-    Favonus : "Lance de Favonus",
+    Favonus : "Lance de Favonius",
     Vagues : "Aileron de brise-vagues",
     Dosdragon : "Lance Dosdragon",
     Royal : "Lance de chasse royale",
