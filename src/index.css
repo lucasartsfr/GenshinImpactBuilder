@@ -1,0 +1,1097 @@
+:root{
+  --Radius : 8px;
+  --Star5 : #e38f2b;
+  --Star4 : #a07bc0;
+  --Star3 : #4c93bf;
+  --StarsColor : #ffcc34;
+  --Star5Bg : url('https://api.lucasarts.fr/genshin/Backgrounds/Star/5.webp');
+  --Star4Bg : url('https://api.lucasarts.fr/genshin/Backgrounds/Star/4.webp');
+  --Star3Bg : url('https://api.lucasarts.fr/genshin/Backgrounds/Star/3.webp');
+  --Transition : .4s;
+  --HeaderHeight : 100px;
+  --HeaderHeightMobile : 150px;
+  --HItems : 95px;
+  --WItems : calc(var(--HItems) * 1.2);
+  --ArtefactSpace : 5px;
+  --Pointer : url('https://api.lucasarts.fr/genshin/Theme/Cursor/highlight.png'), default;
+  --TextFontSize : .875em;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  display: block;
+  min-width: 100%;
+  color: white;
+  font-size: 17pt;
+  margin: 0;
+  /* word-spacing:9999px; */
+}
+
+.App{
+  text-align: center;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.hide{
+  display: none;
+}
+
+/* Character Container */
+
+.CharacterContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: wrap;
+  /* background: url('https://api.lucasarts.fr/genshin/img/background/Anemo.webp');
+  background-image: url('https://api.lucasarts.fr/genshin/img/background/Anemo.webp'); */
+  transition: var(--Transition);
+}
+
+.Video {
+  position: fixed;
+  z-index: -100;
+  filter: hue-rotate(0deg) saturate(1.5);
+  transition: 0s;
+}
+
+.VideoPerso{
+  width: 100%;
+  background-size: cover;
+}
+
+/* .Video.Geo{filter: saturate(2);}
+.Video.Anemo{filter: hue-rotate(100deg) saturate(1.5);}
+.Video.Pyro{filter: hue-rotate(325deg) saturate(2);}
+.Video.Cryo{filter: hue-rotate(135deg) saturate(5);}
+.Video.Hydro{filter: hue-rotate(165deg) saturate(2.5);}
+.Video.Electro{filter: hue-rotate(250deg) saturate(2);} */
+
+.Video.Geo{filter: hue-rotate(208deg) saturate(3);}
+.Video.Anemo{filter: hue-rotate(305deg) saturate(1.5);}
+.Video.Pyro{filter: hue-rotate(175deg) saturate(1.5);}
+.Video.Cryo{filter: hue-rotate(345deg) saturate(2.5);}
+.Video.Hydro{filter: hue-rotate(30deg) saturate(2.5);}
+.Video.Electro{filter: hue-rotate(80deg) saturate(2.5);}
+.Video.Dendro{filter: hue-rotate(250deg) saturate(1.3);}
+
+/* Image Background in V1 */
+.NOAnemo{background-image: url('https://api.lucasarts.fr/genshin/img/background/Anemo.webp');}
+.Anemo #MyCanvas{filter: hue-rotate(310deg);}
+
+.NOPyro{background-image: url('https://api.lucasarts.fr/genshin/img/background/Pyro.webp');}
+.Pyro #MyCanvas{filter: saturate(.7) contrast(110%) hue-rotate(150deg);}
+
+.NOHydro{background-image: url('https://api.lucasarts.fr/genshin/img/background/Hydro.webp');}
+.Hydro #MyCanvas{filter: hue-rotate(0deg);}
+
+.NOElectro{background-image: url('https://api.lucasarts.fr/genshin/img/background/Electro.webp');}
+.Electro #MyCanvas{filter: hue-rotate(80deg);}
+
+.NOGeo{background-image: url('https://api.lucasarts.fr/genshin/img/background/Geo.webp');}
+.Geo #MyCanvas{filter: hue-rotate(215deg);}
+
+.NOCryo{background-image: url('https://api.lucasarts.fr/genshin/img/background/Cryo.webp');}
+.Cryo #MyCanvas{filter: hue-rotate(345deg);}
+
+.NOCryo{background-image: url('https://api.lucasarts.fr/genshin/img/background/Cryo.webp');}
+.Dendro #MyCanvas{filter: hue-rotate(280deg);}
+
+
+
+.CharacterImg{
+  /* -webkit-box-reflect: below -65px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1)); */
+  /* visibility: hidden;
+  opacity: 0; */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.Fliped{
+  transform: rotateX(180deg);
+  opacity: .1;
+  margin-top: -65px;
+  z-index: -1;
+}
+
+
+#MyCanvas{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
+/* Weapon Info */
+
+.WeaponInfoContainer {
+  width: 90%;
+  max-width: 300px;  
+  max-height: 800px;
+  position: fixed;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); */
+  z-index: 9999999;  
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: .1s;
+}
+
+.Grey{
+  color: grey;
+}
+
+.WeaponInfoContainer h2{
+  font-size: 12pt;
+  text-align: left;
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+
+.WeaponInfoContainer h3{
+  margin: 0;
+  color: white;
+  font-size: 10pt;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+
+.WeaponInfoContainer h4{
+  margin: 0;
+  color: white;
+  font-size: 10pt;
+  font-weight: 100;
+  opacity: .6;
+  margin-bottom: 10px;
+}
+
+.WeaponInfoContainer h5{
+  margin: 0;
+  color: var(--StarsColor);
+  font-size: 14pt;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+
+.WeaponInfoContainer .TopWeaponInfo{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  height: 168px;
+}
+
+.WeaponInfoContainer .LeftWeaponInfo{
+  flex: 40%;
+  text-align: left;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+ }
+
+.WeaponInfoContainer .RightWeaponInfo{
+ flex: 60%;
+}
+
+.WeaponInfoContainer .RightWeaponInfo img{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.WeaponInfo5{background-color: var(--Star5);}
+.WeaponInfo4{background-color: var(--Star4);}
+.WeaponInfo3{background-color: var(--Star3);}
+
+.WeaponInfoContainer .BottomWeaponInfo{
+  background-color: #ede5d8;
+  padding: 0px 10px;
+}
+
+.WeaponInfoContainer .BottomWeaponInfo p {
+  font-size: 10pt;
+  text-align: left;
+  opacity: .7;
+}
+
+/* Weapon */
+
+.BestWeapon {
+  width: 30px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.WeaponContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 260px;
+  position: relative;
+  z-index: 9999999;
+}
+
+.WeaponContainer h2 {
+  width: 100%;
+  text-align: left;
+}
+
+.Weapon{
+  background-color: red;
+  width: var(--WItems);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5px;
+  text-align: center;
+  position: relative;
+  border-radius: var(--Radius);
+  margin-bottom: var(--ArtefactSpace);
+}
+
+.Weapon > * {
+  pointer-events: none;
+}
+
+.WeaponName{
+  background-color: white;
+  width: 100%;
+  padding: 5px 0px;
+  font-size: 10pt;
+  min-height: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-bottom-left-radius: var(--Radius);
+  border-bottom-right-radius: var(--Radius);
+}
+
+.WeaponStar {
+  font-size: 17pt;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -50%;
+  color: var(--StarsColor);
+  word-spacing: -18px;
+}
+
+.WeaponStarBis {
+  font-size: 15pt;
+  text-align: center;
+  margin: auto;
+  /* background: white; */
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -12px;
+  color: var(--StarsColor);
+  word-spacing: -18px;
+}
+
+.WeaponStarBis svg{
+  margin: -3px;
+}
+
+.WeaponImage{
+  /* width: 100%; */
+  margin: auto;
+  height: var(--HItems);
+}
+
+.WeaponRate3{
+  background-color: var(--Star3);
+  background-image: var(--Star3Bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.WeaponRate4{
+  background-color: var(--Star4);
+  background-image: var(--Star4Bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.WeaponRate5, .ArtifactRate{
+  background-color: var(--Star5);
+  background-image: var(--Star5Bg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Team */
+
+.TeamList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  width: 100%;
+}
+.TeamList .TeamListTitle{
+  min-width: 100%;
+  font-size: 8pt;
+  margin: 0 0 5px 0;
+  color: white;
+}
+
+.TeamContainer {
+  display: flex; 
+  flex-wrap: wrap;
+  max-width: 260px;
+}
+
+.TeamContainer h2 {
+  width: 100%;
+  text-align: left;
+}
+
+.Team{
+  background-color: red;
+  width: 70px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  border-radius: var(--Radius);
+  cursor: var(--Pointer);
+}
+
+.Team > * {
+  pointer-events: none;
+}
+
+.TeamName{
+  background-color: white;
+  width: 100%;
+  padding: 0px 0px;
+  min-height: 24px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.TeamName .CommontTitle{
+font-size: 7pt;
+}
+
+.TeamStar {
+  font-size: 12pt;
+  text-align: center;
+  margin: auto;
+  /* background: white; */
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -50%;
+  color: var(--StarsColor);
+  word-spacing: -14px;
+}
+
+.TeamImage{
+  /* width: 100%; */
+  margin: auto;
+  height: 70px;
+}
+
+.TeamRate4{
+  background-color: var(--Star4);
+  background-image: var(--Star4Bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.TeamRate5, .ArtifactRate{
+  background-color: var(--Star5);
+  background-image: var(--Star5Bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.TeamComp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* MainArtefact */
+
+.BuildChara {
+  background: rgba(0,0,0,0.3);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+  z-index: 999999;
+  position: relative;
+  color: rgba(255,255,255,0.5);
+}
+
+.BuildLink{
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: var(--Pointer);
+  border: none;
+  background: none;
+  color: white;
+}
+
+.BuildLink.selectedlink{
+  background-color: rgb(255 255 255 / 30%);
+  color: white;
+}
+
+.MainArtefactStats{
+  display: flex;  
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: -250px;
+  position: relative;
+  z-index: 999;
+  margin-bottom: 30px;
+
+  /* position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; */
+}
+
+.MainArtifactBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  min-width: 100px;
+  text-shadow: -1px 0 rgba(0,0,0,0.5), 0 1px rgba(0,0,0,0.5), 1px 0 rgba(0,0,0,0.5), 0 -1px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: .2s;
+  cursor: var(--Pointer);
+}
+
+.MainArtifactImage{
+  max-width: 64px!important;
+  opacity: .8;
+}
+
+.MainArtifactImageContainer {
+  position: relative;
+  margin: 10px 0px;
+  color: white;
+}
+
+.MainArtifactBubble{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  z-index: 9999;
+  width: 160%;
+}
+
+.MainArtifactBlock:hover{
+  transform: scale(1.1);
+}
+
+.MainArtifactBlock.Sablier{  animation: reveal 1.5s forwards 0s; order: 1;}
+.MainArtifactBlock.Coupe{  animation: reveal 1.5s forwards 0.1s; order: 2;}
+.MainArtifactBlock.Casque{  animation: reveal 1.5s forwards 0.2s; order: 3;}
+
+.MainArtifactBubble:nth-child(1){animation: rotation 18s infinite;}
+.MainArtifactBubble:nth-child(2){animation: rotation 24s infinite;}
+.MainArtifactBubble:nth-child(3){animation: rotation 16s infinite;}
+
+
+.Coupe .MainArtifactImage{
+  max-width: 112px!important;
+}
+
+
+/* Image Container*/
+
+.ImageContainer {
+  order: 2;
+  width: 40%;
+  height: 75%;
+  position: relative;
+  max-width: 400px;
+  background-size: contain;
+  background-position: center;
+  /* -webkit-box-reflect: below 28px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.15)); */
+  background-repeat: no-repeat;
+}
+
+.Left{
+  order: 1;
+  height: 100%;
+  min-width: 260px;  
+  max-width: 260px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.Right{
+  order: 3;
+  height: 100%;
+  min-width: 260px;
+  max-width: 260px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.CharacterImgDiv{
+  background-size: contain;
+  background-position: center;
+  /* -webkit-box-reflect: below -65px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1)); */
+  background-repeat: no-repeat;
+  text-align: center;
+  /* transition: var(--Transition); */
+  height: 100%;
+  width: 100%;
+  /* max-height: 700px;
+  height: 700px; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+/* Artifacts */
+
+.ArtifactContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 260px;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ArtifactContainer h2 {
+  width: 100%;
+  text-align: left;
+}
+
+.Artifact{
+  background-color: var(--Star5);
+  width: var(--WItems);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5px;
+  /* overflow: hidden; */
+  text-align: center;
+  position: relative;
+  border-radius: var(--Radius);
+  margin-bottom: 0px;
+}
+
+.ArtifactName{
+  background-color: white;
+  width: 100%;
+  padding: 5px 0px;
+  font-size: 10pt;
+  min-height: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-bottom-left-radius: var(--Radius);
+  border-bottom-right-radius: var(--Radius);
+  backface-visibility: hidden;
+  outline: 1px solid transparent;
+  transform-style: preserve-3d;
+}
+
+.ArtifactStar {
+  font-size: 17pt;
+  text-align: center;
+  margin: auto;
+  /* background: white; */
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -50%;
+  color: var(--StarsColor);
+  word-spacing: -18px;
+}
+
+.ArtifactImage{
+  /* width: 100%; */
+  margin: auto;
+  height: var(--HItems);
+}
+
+
+
+.SetArtifact{
+  display: flex;
+  margin-bottom: var(--ArtefactSpace);
+  position: relative;
+}
+
+.SetArtifact > * {
+  /* pointer-events: none; */
+}
+
+.SetArtifact:after {
+  transform: translate(-50%, -50%);
+  content: "";
+  background: white;
+  width: 10%;
+  height: 1px;
+  position: absolute;
+  left: 50%;
+  z-index: -1;
+  top: 50%;
+}
+
+.SetArtifactDesc {
+}
+
+.SetDesc {
+  font-size: .7em;
+  color: #9dff92;
+}
+
+.SetArtifactDescGroup {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+span.SetNumber {
+  width: 20px;
+  background: #5eb25d;
+  color: white;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  font-size: .75em;
+  min-width: 20px;
+  margin-right: 10px;
+} 
+
+.CommontTitle{
+  margin: 0;
+  font-size: 8pt;
+  width: 90%;
+  font-weight: 100;
+  color: black;
+}
+
+.CommonH2{
+  color: white;
+  font-size: 1.2em;
+}
+
+.SubstatsContainer{
+  text-align: left;
+  position: relative;
+  z-index: 10;
+}
+
+.ArtifactEffect{
+  text-align: left;
+  position: relative;
+  z-index: 10;
+  height: fit-content;
+}
+
+/* .Right .SubstatsContainer .CommonH2{
+  text-align: right;
+} */
+
+.SubStats{
+  margin-bottom: 10px;
+  color: white;
+  font-size: var(--TextFontSize);
+}
+
+.SubStats:nth-child(even) {
+  background: rgb(0,0,0);
+  background: linear-gradient(123deg, rgba(0,0,0,0) -20%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%);
+}
+
+.IconesSubStats{
+  color: rgba(255,255,255,0.5);
+}
+
+.SelectAllCharacter{
+  width: 100%;
+  height: var(--HeaderHeight);
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  position: fixed;
+  z-index: 999999999;
+}
+
+
+.SelectCharacter{
+  background-color: rgba(0,0,0,0.2);
+  width: 64px;
+  border-radius: 100px;
+  border: 4px solid rgba(0,0,0,0.5);
+  cursor: var(--Pointer);
+  margin: 5px;
+  transition: var(--Transition);
+  opacity: .8;
+}
+
+.SelectCharacter.selected{
+  background-color: #59b3e9;
+  border: 4px solid #7bcea2;
+  opacity: 1;
+}
+
+.ListSelectCharacter{
+  flex: 60%;
+  display: flex;
+  /* max-width: 60%; */
+  overflow-x: auto;
+  align-items: center;
+  scroll-behavior: smooth;
+  /* justify-content: center; */
+}
+
+.Core{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    margin-top: var(--HeaderHeight);
+    height: calc(100vh - var(--HeaderHeight));
+    flex-wrap: wrap;
+}
+
+.SelectedCharacterInfo{
+  flex: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SelectedCharaterType{
+  width: 42px;
+}
+
+.SelectedCharacterStar{
+  margin: 0;
+  font-size: 10px;
+}
+
+.AllCharacterStars{
+  color: var(--StarsColor);
+  font-size: 12pt;
+}
+
+.FlexSpace{
+  flex: 20%;
+  color: white;
+  font-size: 8pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.SelectName{
+  align-items: center;
+  background: #c6c9b9;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+  color: #485060;
+  display: flex;
+  flex-basis: 50%;
+  flex: 1 1;
+  font-size: 9pt;
+  height: 30px;
+  justify-content: flex-start;
+  padding: 0px 0 0px 12px!important;
+  position: relative;
+}
+
+.SelectGenshin{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+    background: #baafa0;
+    border: none;
+    color: #485060;
+    font-size: 9pt;
+    flex: 1 1;
+    height: 30px;
+    padding: 4px 6px!important;
+    pointer-events: all!important;
+    position: relative;
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+    margin: 0;
+    text-align: center;
+}
+
+.StarDeco, .StarDecoB {
+  color: #b1a595;
+  font-size: 22pt;
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  -webkit-transform: translate(50%);
+  transform: translate(50%);
+}
+
+.FiltreType{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  width: 60%;
+}
+
+.FiltreType img{
+  width: 28px;
+  margin: 5px;
+}
+
+.FlexSpace a{
+  color: white;
+  text-decoration: none;
+  cursor: var(--Pointer);
+}
+
+.SelectedCharaterTypeContainer{
+  flex: 30%;
+  margin: 10px;
+}
+
+.SelectCharacterName{
+  flex: 60%;
+  margin: 0px 10px;
+}
+
+hr {
+  width: 0px;
+  border: 0px solid white;
+}
+
+.parallax-effect{
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  outline: 1px solid transparent;
+}
+
+.inner-element {
+  transform: translate3d(0px,0px,20px);
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.Switched{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  animation: Switched .8s forwards;
+}
+
+@keyframes Switched {
+  0% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00000.webp');}
+  5% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00001.webp');}
+  10% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00002.webp');}
+  15% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00003.webp');}
+  20% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00004.webp');}
+  25% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00005.webp');}
+  30% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00006.webp');}
+  35% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00007.webp');}
+  40% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00008.webp');}
+  45% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00009.webp');}
+  50% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00010.webp');}
+  55% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00011.webp');}
+  60% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00012.webp');}
+  65% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00013.webp');}
+  70% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00014.webp');}
+  75% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00015.webp');}
+  80% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00016.webp');}
+  85% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00017.webp');}
+  90% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00000.webp');}
+  95% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00000.webp');}
+  100% {background-image: url('https://api.lucasarts.fr/genshin/Backgrounds/Switch/Light00000.webp');}
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+  .Video{
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media screen and (min-aspect-ratio: 16/9) {
+  .Video{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .CharacterContainer{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .WeaponInfoContainer {
+    top: 50%!important;
+    left: 50%!important;
+    transform: translate(-50%,-50%)!important;
+  }
+
+  .Core{
+    margin-top: calc(var(--HeaderHeightMobile) + 25px);
+    margin-bottom: calc(var(--HeaderHeightMobile) + 25px);
+    height: 100%;
+  }
+
+  .ArtifactEffect{
+    margin-bottom: var(--HeaderHeight);
+  }
+
+  .FlexSpace{
+    display: none;
+  }
+  .ImageContainer{
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .MainArtefactStats{
+    max-width: fit-content;
+    margin: -250px auto 0 auto;
+  }
+  .MainArtifactBlock{
+    margin: 15px;
+  }
+  .Right{
+    order: 3;
+    width: 90%;
+    height: auto;
+  }
+  .Left{
+    order: 2;
+    height: auto;
+    width: 90%;
+  }
+  .WeaponContainer{
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    z-index: 9999;
+  }
+
+  .ArtifactContainer{
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .TeamContainer{
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .TeamList{    
+    justify-content: space-evenly;
+  }
+
+
+  hr {
+      width: 20px;
+  }
+
+  
+  .SelectAllCharacter{
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.5);
+    height: var(--HeaderHeightMobile);
+  }
+  .ListSelectCharacter{
+    width: 100%;
+    /* max-width: 90%; */
+  }
+  .SelectedCharacterInfo{
+    width: 100%;
+  }
+  .SelectedCharaterTypeContainer{
+    flex: 5%;
+  }
+  .SelectCharacterName {
+    flex: 55%;
+    margin-right: 20%;
+  }
+  /* .SetArtifact{
+    flex-wrap: wrap;
+    justify-content: end;
+  } */
+}
